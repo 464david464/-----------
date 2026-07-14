@@ -834,7 +834,7 @@
         stroke: 0.5pt + black,
         inset: 5pt,
         radius: 2pt,
-        width: 100%,
+        width: 100%
       )[
         == נספח מתמטי: אלמנטים דיפרנציאליים
         עבור אינטגרצייה על ספירה מלאה: $phi in [0, 2 pi], theta in [0, pi]$
@@ -869,13 +869,18 @@
       )[
         == נספח: משוואות מקסוול
 
-        *חוק גאוס לחשמל:* #h(1fr) $nabla dot arrow(E) = rho / epsilon_0 quad <=> quad integral arrow(E) dot d arrow(A) = Q_"in" / epsilon_0$
-
-        *חוק גאוס למגנטיות:* #h(1fr) $nabla dot arrow(B) = 0 quad <=> quad integral arrow(B) dot d arrow(A) = 0$
-
-        *חוק פראדיי:* #h(1fr) $nabla times arrow(E) = - (partial arrow(B)) / (partial t) quad <=> quad integral arrow(E) dot d arrow(l) = - (d Phi_B) / (d t)$
-
-        *חוק אמפר-מקסוול:* \ #h(1fr) $nabla times arrow(B) = mu_0 arrow(J) + mu_0 epsilon_0 (partial arrow(E)) / (partial t) quad <=> quad integral arrow(B) dot d arrow(l) = mu_0 I_"in" + mu_0 epsilon_0 (d Phi_E) / (d t)$
+        #align(center)[
+          #table(
+            columns: (0.9fr, 1.3fr, 1.6fr),
+            align: center + horizon,
+            stroke: 0.5pt + luma(200),
+            [*חוק*], [*צורה דיפרנציאלית*], [*צורה אינטגרלית*],
+            [*גאוס לחשמל*], $nabla dot arrow(E) = rho / epsilon_0$, $integral arrow(E) dot d arrow(A) = Q_"in" / epsilon_0$,
+            [*גאוס למגנטיות*], $nabla dot arrow(B) = 0$, $integral arrow(B) dot d arrow(A) = 0$,
+            [*פראדיי*], $nabla times arrow(E) = - (partial arrow(B)) / (partial t)$, $integral arrow(E) dot d arrow(l) = - (d Phi_B) / (d t)$,
+            [*אמפר-מקסוול*], $nabla times arrow(B) = mu_0 arrow(J) + mu_0 epsilon_0 (partial arrow(E)) / (partial t)$, $integral arrow(B) dot d arrow(l) = mu_0 I_"in" + mu_0 epsilon_0 (d Phi_E) / (d t)$
+          )
+        ]
       ]
     ],
   )
