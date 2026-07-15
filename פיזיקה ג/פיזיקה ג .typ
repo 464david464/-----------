@@ -679,7 +679,7 @@
   ההפוכה מ-$S'$ ל-$S$: #h(1fr) $vec(x, t) = gamma mat(1, v; v/c^2, 1) vec(x', t')$ \
   #text(size: 8pt)[פתיחה ישירה: $x' = gamma(x - v t) quad , quad t' = gamma(t - v/c^2 x)$] \
 
-  *מטריצה מנורמלת (וקטור מנורמל - $(c t, x)^T$):* \
+  *מטריצה מנורמלת:* \
   #text(size: 8pt)[יחידות זהות של אורך לשני הצירים] \
   הישירה מ-$S$ ל-$S'$: #h(1fr) $vec(c t', x') = gamma mat(1, -beta; -beta, 1) vec(c t, x)$ \
   \
