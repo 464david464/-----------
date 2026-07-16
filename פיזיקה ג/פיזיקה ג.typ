@@ -179,8 +179,9 @@
 )[
   == האפקט הפוטו-אלקטרי
 
-  אנרגיה של פוטון: #h(1fr) $E_"ph" = h nu = (h c) / lambda$ \
-  תנע של פוטון: #h(1fr) $p_"ph" = E_"ph" / c = (h nu) / c = h / lambda$
+  קשרי גל בסיסיים: \ #h(1fr) $c = lambda nu quad , quad omega = 2 pi nu quad , quad T = 1/nu quad , quad k = (2 pi) / lambda$ \
+  אנרגיה של פוטון: #h(1fr) $E_"ph" = h nu = planck omega = (h c) / lambda$ \
+  תנע של פוטון: #h(1fr) $p_"ph" = E_"ph" / c = (h nu) / c = planck k = h / lambda$
 
   האנרגיה הקינטית של פוטון ($B$ אנרגיית קשר):
 
