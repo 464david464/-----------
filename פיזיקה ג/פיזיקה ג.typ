@@ -406,10 +406,16 @@
   #h(1fr) $E Psi(x) = - planck^2 / (2m) (partial^2 Psi(x)) / (partial x^2) + U(x) Psi(x)$
 
   *הכללה לתלת-מימד:* \
+  אופרטור הלפלסיאן בקואורדינטות כדוריות: \
+  #set text(dir: ltr)
+  #text(size: 8pt)[
+    $nabla^2=1/(r^2) partial/(partial r) (r^2 partial/(partial r)) + 1/(r^2) [1/sin theta partial/(partial theta) (sin theta partial/(partial theta))+1/(sin^2 theta) partial^2/(partial phi^2)]$
+  ]
+  #set text(dir: rtl)
   אופרטור התנע והתנע בריבוע:\ #h(1fr) $hat(p) = -i planck nabla quad , quad hat(p)^2 = -planck^2 nabla^2$ \
   ההמילטוניאן:\ #h(1fr) $hat(H) = - planck^2 / (2m) nabla^2 + U(r)$ \
   המשוואה התלויה בזמן:\ #h(1fr) $i planck (partial Psi) / (partial t) = - planck^2 / (2m) nabla^2 Psi + U(r) Psi$ \
-  המשוואה שאינה תלויה:\ #h(1fr) $E Psi(r) = - planck^2 / (2m) nabla^2 Psi(r) + U(r) Psi(r)$
+  המשוואה שאינה תלויה:\ #h(1fr) $nabla^2 Psi(r) = - (2m) / planck^2 (E - U(r)) Psi(r)$
 
   == תוחלות, סטטיסטיקה והפרדת משתנים
 
@@ -504,14 +510,22 @@
   inset: 5pt,
   radius: 2pt,
 )[
-  == אטום המימן ותנע זוויתי בתלת-מימד
+  == משוואת שרדינגר לאטום המימן
+ *הפרדת משתנים באטום המימן:* \
+  צורה כללית של הפתרון:\ #h(1fr) $psi(r, theta, phi) = R(r) Theta(theta) Phi(phi)$
 
-  אופרטור הלפלסיאן בקואורדינטות כדוריות: \
-  #set text(dir: ltr)
-  #text(size: 8pt)[
-    $nabla^2=1/(r^2) partial/(partial r) (r^2 partial/(partial r)) + 1/(r^2) [1/sin theta partial/(partial theta) (sin theta partial/(partial theta))+1/(sin^2 theta) partial^2/(partial phi^2)]$
-  ]
-  #set text(dir: rtl)
+  המשוואה הרדיאלית $R(r)$:\
+  #text(size: 8pt)[מגדירים $u(r) = r R(r)$ ומקבלים משוואה התלויה בפוטנציאל האפקטיבי:] \
+  #h(1fr) $(partial^2 u(r)) / (partial r^2) + (-kappa^2 + 2 / (a_0 r) - (ell(ell+1)) / r^2) u(r) = 0$ \
+
+  המשוואה האזימוטלית $Phi(phi)$: \
+  #h(1fr) $(partial^2 Phi) / (partial phi^2) + m_ell^2 Phi = 0 quad => quad Phi(phi) = 1 / sqrt(2 pi) e^(i m_ell phi)$
+
+  המשוואה הפולרית $Theta(theta)$: \
+  #text(size: 8pt)[פתרונותיה מוגבלים ע"י המספרים $ell$ ו-$m_ell$.] \
+  #h(
+    1fr,
+  ) $1 / (sin theta) partial / (partial theta) (sin theta (partial Theta) / (partial theta)) + (ell(ell+1) - (m_ell^2) / (sin^2 theta))Theta = 0$
 
   *תנע זוויתי:* \
   אופרטור התנע הזוויתי בריבוע: \
@@ -522,21 +536,7 @@
   אופרטור היטל התנע הזוויתי על ציר $z$: #h(1fr) $hat(L)_z = -i planck partial / (partial phi)$ \
   היטל התנע הזוויתי (הערך העצמי): #h(1fr) $L_z = m_ell planck$
 
-  *הפרדת משתנים באטום המימן:* \
-  צורה כללית של הפתרון:\ #h(1fr) $psi(r, theta, phi) = R(r) Theta(theta) Phi(phi)$
-
-  המשוואה הרדיאלית $R(r)$:\
-  #text(size: 8pt)[מגדירים $u(r) = r R(r)$ ומקבלים משוואה התלויה בפוטנציאל האפקטיבי:] \
-  #h(1fr) $- planck^2 / (2m) (partial^2 u) / (partial r^2) + (U(r) + (planck^2 ell(ell+1)) / (2 m r^2)) u = E u$ \
-
-  המשוואה האזימוטלית $Phi(phi)$: \
-  #h(1fr) $(partial^2 Phi) / (partial phi^2) + m_ell^2 Phi = 0 quad => quad Phi(phi) = 1 / sqrt(2 pi) e^(i m_ell phi)$
-
-  המשוואה הפולרית $Theta(theta)$: \
-  #text(size: 8pt)[פתרונותיה מוגבלים ע"י המספרים $ell$ ו-$m_ell$.] \
-  #h(
-    1fr,
-  ) $1 / (sin theta) partial / (partial theta) (sin theta (partial Theta) / (partial theta)) + (ell(ell+1) - (m_ell^2) / (sin^2 theta))Theta = 0$
+ 
 
   *מספרים קוונטיים (היררכיית התלויות):* \
   #text(size: 8pt)[כדי לאפיין מצב באטום נדרשים 4 מספרים קוונטיים. כל מספר מגביל את האפשרויות של זה שאחריו:] \
@@ -749,7 +749,9 @@
 )[
   == חיבור מהירויות יחסותיות נובע ישירות מטרנספורמציית לורנץ
 
-  #text(size: 8pt)[חלקיק נע במערכת $S'$, הנעה במהירות $v$ ביחס ל-$S$ (בכיוון ציר $x$). מהירויות החלקיק הן $u$ במערכת $S$ ו-$u'$ במערכת $S'$:] \
+  #text(
+    size: 8pt,
+  )[חלקיק נע במערכת $S'$, הנעה במהירות $v$ ביחס ל-$S$ (בכיוון ציר $x$). מהירויות החלקיק הן $u$ במערכת $S$ ו-$u'$ במערכת $S'$:] \
   *בציר $x$ (במקביל לכיוון התנועה):*\
   #h(
     1fr,
@@ -759,7 +761,9 @@
   #h(1fr) $u_z = u'_z / (gamma (1 + (u'_x v) / (c^2))) quad , quad u'_z = u_z / (gamma (1 - (u_x v) / (c^2)))$ \
   #text(size: 8pt)[כאשר $gamma = 1 / sqrt(1 - v^2/c^2)$] \
   נוסחאות עבור יחידות $c$ להציב את המהירויות ביחידות של $c$:\
-  #h(1fr) $u_x = (u'_x + v) / (1 + u'_x v ) quad , quad u'_x = (u_x - v) / (1 - u_x v) quad , quad v = (u_x - u'_x) / (1 - u_x u'_x)$ \ \
+  #h(
+    1fr,
+  ) $u_x = (u'_x + v) / (1 + u'_x v ) quad , quad u'_x = (u_x - v) / (1 - u_x v) quad , quad v = (u_x - u'_x) / (1 - u_x u'_x)$ \ \
   #h(1fr) $u_y = u'_y / (gamma (1 + u'_x v)) quad , quad u_z = u'_z / (gamma (1 + u'_x v))$ \
 ]
 
@@ -787,7 +791,9 @@
   #text(size: 8pt)[ על המגבלה. רק קרן אור עוברת. ביחס לאור אין כלל זמן והמרחב מתכווץ לאפס.]
   #align(center)[
     #image("Spacetime_diagram_development_A.svg", width: 75%)
-    #text(size: 8pt)[*דיאגרמת מרחב-זמן (מינקובסקי):* ציר ה-$x$ מייצג מרחב וציר ה-$c t$ מייצג זמן. הקווים האלכסוניים ($v=c$) יוצרים את "קונוס האור" (האיזור הלבן) המפריד בין אירועים דמויי-זמן (בתוך הקונוס, היכן שקשר סיבתי אפשרי) לבין אירועים דמויי-מרחב (מחוץ לקונוס, נטולי קשר סיבתי).]
+    #text(
+      size: 8pt,
+    )[*דיאגרמת מרחב-זמן (מינקובסקי):* ציר ה-$x$ מייצג מרחב וציר ה-$c t$ מייצג זמן. הקווים האלכסוניים ($v=c$) יוצרים את "קונוס האור" (האיזור הלבן) המפריד בין אירועים דמויי-זמן (בתוך הקונוס, היכן שקשר סיבתי אפשרי) לבין אירועים דמויי-מרחב (מחוץ לקונוס, נטולי קשר סיבתי).]
   ]
 ]
 
