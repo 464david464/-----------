@@ -349,6 +349,19 @@
   inset: 5pt,
   radius: 2pt,
 )[
+  == עקרון אי-הוודאות של הייזנברג: \
+  אי-ודאות במרחב (מיקום-תנע): #h(1fr) $Delta x Delta p >= planck / 2$ \
+  #text(size: 8pt)[אי-הוודאות מוגדרת פורמלית כסטיית התקן הסטטיסטית: $Delta x = sigma_x quad , quad Delta p = sigma_p$] \
+  אי-ודאות בזמן (אנרגיה-זמן): #h(1fr) $Delta E Delta t >= planck / 2$ \
+  #text(size: 8pt)[כאשר $Delta E = sigma_E$ ו-$Delta t$ הוא הזמן האופייני לשינוי המערכת.]
+]
+
+#block(
+  fill: gray.lighten(100%),
+  stroke: 0.5pt + black,
+  inset: 5pt,
+  radius: 2pt,
+)[
   == משוואות שרדינגר
 
   הגדרת האנרגיה הכללית:
@@ -402,15 +415,31 @@
 
   צפיפות הסתברות (הסיכוי למצוא את החלקיק בנקודה):\
   #text(size: 8pt)[$Psi^*$ הצמוד של- $Psi$]     :
-  #h(1fr) $P(x) = |Psi|^2 = Psi^* Psi$
+  #h(1fr) $rho(x) = |Psi(x)|^2 = Psi^* Psi$
+
+  הסתברות למצוא את החלקיק בתחום $[a, b]$:
+
+  #h(1fr) $P(a <= x <= b) = integral_a^b |Psi(x)|^2 d x$
 
   תנאי נרמול (החלקיק חייב להימצא במרחב):
 
   #h(1fr) $integral_(-oo)^oo |Psi|^2 d x = 1$
 
+  תוחלת של משתנה $x$:
+
+  #h(1fr) $chevron.l x chevron.r = integral_(-oo)^oo x rho(x) d x$
+
   תוחלת של אופרטור $hat(A)$ :
 
   #h(1fr) $chevron.l hat(A) chevron.r = integral_(-oo)^oo Psi^* hat(A) Psi d x$
+
+  שונות ($sigma^2$):
+
+  #h(1fr) $Delta A^2 = sigma_A^2 = chevron.l hat(A)^2 chevron.r - chevron.l hat(A) chevron.r^2$
+
+  סטיית תקן (אי-ודאות של גודל מדיד):
+
+  #h(1fr) $Delta A = sigma_A = sqrt(chevron.l hat(A)^2 chevron.r - chevron.l hat(A) chevron.r^2)$
 
   הפרדת משתנים כללית (מרחב וזמן במצבים עומדים):
 
@@ -449,18 +478,18 @@
   #h(1fr) $U(x) = cases(0 & : x < 0, U_0 & : x >= 0)$ \
   כאשר $E > U_0$: \
   #h(1fr) $k_1 = sqrt(2m E) / planck quad , quad k_2 = sqrt(2m(E - U_0)) / planck$ \ \
-  פונקציית גל: #h(1fr) $psi(x) = cases(A e^(i k_1 x) + B e^(-i k_1 x) & x < 0, C e^(i k_2 x) & x >= 0)$ \ \
+  פונקציית גל: #h(1fr) $psi(x) = cases(A e^(i k_1 x) + B e^(-i k_1 x) & : x < 0, C e^(i k_2 x) & : x >= 0)$ \ \
   מקדמים: #h(1fr) $B = (k_1 - k_2)/(k_1 + k_2) A quad , quad C = (2k_1)/(k_1 + k_2) A$ \
   כאשר $E < U_0$: \
   #h(1fr) $k_1 = sqrt(2m E) / planck quad , quad k_2 = sqrt(2m(U_0 - E)) / planck$ \ \
-  פונקציית גל: #h(1fr) $psi(x) = cases(A e^(i k_1 x) + B e^(-i k_1 x) & x < 0, C e^(-k_2 x) & x >= 0)$ \
+  פונקציית גל: #h(1fr) $psi(x) = cases(A e^(i k_1 x) + B e^(-i k_1 x) & : x < 0, C e^(-k_2 x) & : x >= 0)$ \
   #text(size: 8pt)[יש גל חוזר מלפני המדרגה, ודעיכה אקספוננציאלית מעבר למדרגה.]
 
   *מחסום פוטנציאל (מנהור):* \
-  #h(1fr) $U(x) = cases(U_0 & 0 <= x <= d, 0 & "אחרת")$ \
-  עבור $E < U_0$, מספרי הגל זהים למדרגה. מקדם ההעברה (למחסום רחב $k_2 d \gg 1$): \
+  #h(1fr) $U(x) = cases(U_0 & : 0 <= x <= d, 0 & : "אחרת")$ \
+  עבור $E < U_0$, מספרי הגל זהים למדרגה. מקדם ההעברה (למחסום רחב $k_2 d gt.double 1$): \
   #h(1fr) $T = (16 E (U_0 - E)) / (U_0^2) e^(-2 k_2 d)$ \
-  #text(size: 8pt)[יש הסתברות למעבר חלקיק דרך המחסום, בניגוד לפיזיקה הקלאסית.]
+  #text(size: 8pt)[יש הסתברות למעבר חלקיק דרך המחסום]
 
   *אוסילטור הרמוני קוונטי:* \
   פוטנציאל: #h(1fr) $U(x) = 1/2 m omega^2 x^2$ \
@@ -608,7 +637,7 @@
 
   *הפרש זמנים ודרכים אופטיות:* \
   #h(1fr) $Delta t = t_parallel - t_perp approx (L v^2) / c^3 quad => quad Delta x = c Delta t approx (L v^2) / c^2$
-  *היסט הפרינג'ים בסיבוב (Fringe Shift):* \
+  *היסט הפרינג'ים בסיבוב:* \
   #text(size: 8pt)[כאשר מסובבים את האינטרפרומטר ב-$90^degree$, התפקידים מתחלפים וההפרש מוכפל. מספר הפרינג'ים שיזוזו:] \
   #h(1fr) $Delta m = (2 Delta x) / lambda = (2 L v^2) / (lambda c^2)$]
 
@@ -756,6 +785,10 @@
   #text(size: 8pt)[ סדר הזמנים *יכול להתהפך* במערכות שונות קיימת מערכת בה $Delta t = 0$ (בו-זמנית).] \
   3. *דמוי-אור - LL ($I = 0$):*\ #h(1fr) $(c Delta t)^2 = (Delta x)^2 => v = c$ \
   #text(size: 8pt)[ על המגבלה. רק קרן אור עוברת. ביחס לאור אין כלל זמן והמרחב מתכווץ לאפס.]
+  #align(center)[
+    #image("Spacetime_diagram_development_A.svg", width: 75%)
+    #text(size: 8pt)[*דיאגרמת מרחב-זמן (מינקובסקי):* ציר ה-$x$ מייצג מרחב וציר ה-$c t$ מייצג זמן. הקווים האלכסוניים ($v=c$) יוצרים את "קונוס האור" (האיזור הלבן) המפריד בין אירועים דמויי-זמן (בתוך הקונוס, היכן שקשר סיבתי אפשרי) לבין אירועים דמויי-מרחב (מחוץ לקונוס, נטולי קשר סיבתי).]
+  ]
 ]
 
 
